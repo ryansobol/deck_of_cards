@@ -2,11 +2,15 @@ class Deck
 
   attr_accessor :cards
 
-  @@cards = ['hearts', 'spades', 'diamonds', 'clubs']
+  @@suits = ['hearts', 'spades', 'diamonds', 'clubs']
 
   def initialize
-    for
-    @cards
+    @cards = Array.new
+    @@suits.each do |suit|
+      (1..13).each do |number|
+        @cards << Card.new(number, suit)
+      end
+    end
   end
 
 end
