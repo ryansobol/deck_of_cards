@@ -20,4 +20,10 @@ describe Deck do
     assert_equal('diamonds', card_twenty_eight.suit)
     assert_equal(2, card_twenty_eight.number)
   end
+
+  it 'should give a random order of cards after shuffling' do
+    pre_shuffled_deck = Deck.new
+    shuffled_deck = pre_shuffled_deck.shuffle
+    refute_equal(pre_shuffled_deck, shuffled_deck)
+  end
 end
