@@ -5,8 +5,8 @@ require 'card'
 describe Card do
   it "should have suit and number equal to initialized values" do
     card = Card.new(1, 'hearts')
-    assert_equal(card.suit, 'hearts')
-    assert_equal(card.number, 1)
+    assert_equal('hearts', card.suit)
+    assert_equal(1, card.number)
   end
 
   it "should reject invalid numbers from 1-13" do
@@ -29,5 +29,10 @@ describe Card do
     card_2 = Card.new(2, "SPaDes")
     assert_equal(card.suit, 'hearts')
     assert_equal(card_2.suit, 'spades')
+  end
+
+  it "should give a readable string with to_s" do
+    card = Card.new(1, 'hearts')
+    assert_equal('Ace of hearts', card.to_s)
   end
 end

@@ -25,5 +25,6 @@ describe Deck do
     pre_shuffled_deck = Deck.new
     shuffled_deck = pre_shuffled_deck.shuffle
     refute_equal(pre_shuffled_deck, shuffled_deck)
+    assert_equal(52, shuffled_deck.size)
   end
 end

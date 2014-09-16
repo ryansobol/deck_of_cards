@@ -17,6 +17,12 @@ class Deck
     cards.shuffle
   end
 
-
+  def to_s
+    cards_string = []
+    cards.each do |card|
+      cards_string << card.to_s
+    end
+    cards_string
+  end
 
 end
