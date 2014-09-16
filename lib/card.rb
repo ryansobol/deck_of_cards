@@ -9,8 +9,8 @@ class Card
       @number = number
       @suit = suit
     else
-      raise InvalidCardError, "Cards must have a number between 1 and 13,
-        and suits must be legitimate card suits"
+      raise InvalidCardError, 'Cards must have a number between 1 and 13,
+        and suits must be legitimate card suits'
     end
   end
 
