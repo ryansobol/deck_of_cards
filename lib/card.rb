@@ -1,11 +1,9 @@
 class Card
   attr_accessor :number, :suit
 
-  @@suits = ['hearts', 'spades', 'diamonds', 'clubs']
-
   def initialize(number, suit)
     suit.downcase!
-    if number.between?(1,13) && @@suits.include?(suit)
+    if number.between?(1,13) && $SUITS.include?(suit)
       @number = number
       @suit = suit
     else
