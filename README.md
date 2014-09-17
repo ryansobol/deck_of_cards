@@ -1,7 +1,5 @@
 # Approach
 
-TAKE CARE OF @@suits
-
 I approached this using BDD. I first initialized the minitest framework
 and then started specifying the card behaviours. They should have suit and
 number instance variables. I then specified that cards with invalid numbers
