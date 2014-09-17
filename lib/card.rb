@@ -1,9 +1,11 @@
+require 'deck_config'
+
 class Card
   attr_accessor :number, :suit
 
   def initialize(number, suit)
     suit.downcase!
-    if number.between?(1, 13) && $SUITS.include?(suit)
+    if number.between?(1, 13) && SUITS.include?(suit)
       @number = number
       @suit = suit
     else
