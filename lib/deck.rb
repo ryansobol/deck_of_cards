@@ -1,11 +1,9 @@
 class Deck
-
   attr_accessor :cards
+  $SUITS = %w(hearts spades diamonds clubs)
 
-  $SUITS = ['hearts', 'spades', 'diamonds', 'clubs']
-
-  def initialize(options={})
-    @cards = Array.new
+  def initialize(options = {})
+    @cards = []
     $SUITS.each do |suit|
       (1..13).each do |number|
         @cards << Card.new(number, suit)
@@ -22,7 +20,7 @@ class Deck
   def to_s
     cards_string = []
     @cards.each do |card|
-      cards_string << "#{card.to_s}"
+      cards_string << "#{card}"
     end
     cards_string.join(', ')
   end

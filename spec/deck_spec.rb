@@ -28,4 +28,3 @@ describe Deck do
     assert_equal(52, shuffled_deck.size)
   end
 end
-

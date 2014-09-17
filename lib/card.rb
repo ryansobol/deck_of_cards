@@ -3,17 +3,16 @@ class Card
 
   def initialize(number, suit)
     suit.downcase!
-    if number.between?(1,13) && $SUITS.include?(suit)
+    if number.between?(1, 13) && $SUITS.include?(suit)
       @number = number
       @suit = suit
     else
-      raise InvalidCardError, 'Cards must have a number between 1 and 13,
+      fail InvalidCardError, 'Cards must have a number between 1 and 13,
         and suits must be legitimate card suits'
     end
   end
 
   def to_s
-
     case @number
     when 1
       @number = 'Ace'
@@ -28,7 +27,6 @@ class Card
     end
 
     "#{@number} of #{@suit}"
-
   end
 end
 

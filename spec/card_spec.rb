@@ -7,7 +7,6 @@ describe Card do
   let(:valid_card) { Card.new(1, 'hearts') }
 
   it 'should have suit and number equal to initialized values' do
-    card = Card.new(1, 'hearts')
     assert_equal('hearts', valid_card.suit)
     assert_equal(1, valid_card.number)
   end
