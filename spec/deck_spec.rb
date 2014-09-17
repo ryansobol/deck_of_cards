@@ -3,9 +3,11 @@ require 'spec_helper'
 require 'deck'
 
 describe Deck do
+
+  let(:unshuffled_deck) { Deck.new }
+
   it 'a new deck should have 52 cards' do
-    deck = Deck.new
-    assert_equal(52, deck.cards.size)
+    assert_equal(52, unshuffled_deck.cards.size)
   end
 
   it 'should have an ordered deck' do

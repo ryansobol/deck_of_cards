@@ -24,7 +24,7 @@ class Deck
     @cards.each do |card|
       cards_string << "#{card.to_s}"
     end
-    cards_string
+    cards_string.join(', ')
   end
 
   def size
