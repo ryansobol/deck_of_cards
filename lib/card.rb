@@ -13,18 +13,13 @@ class Card
   end
 
   def to_s
-    case @number
-    when 1
-      @number = 'Ace'
-    when 11
-      @number = 'Jack'
-    when 12
-      @number = 'Queen'
-    when 13
-      @number = 'King'
-    else
-      @number
-    end
+    @number = case @number
+      when 1 then 'Ace'
+      when 11 then 'Jack'
+      when 12 then 'Queen'
+      when 13 then 'King'
+      else @number
+      end
 
     "#{@number} of #{@suit}"
   end
