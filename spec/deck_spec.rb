@@ -22,9 +22,10 @@ describe Deck do
   end
 
   it 'should give a random order of cards after shuffling' do
-    pre_shuffled_deck = Deck.new
-    shuffled_deck = pre_shuffled_deck.shuffle
-    refute_equal(pre_shuffled_deck, shuffled_deck)
+    deck = Deck.new
+    shuffled_deck = Deck.new(shuffle: true)
+    refute_equal(deck.to_s, shuffled_deck.to_s)
     assert_equal(52, shuffled_deck.size)
   end
 end
+
