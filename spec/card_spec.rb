@@ -7,33 +7,30 @@ describe Card do
   let(:valid_card) { Card.new(1, 'hearts') }
 
   it 'should have suit and number equal to initialized values' do
-    assert_equal('hearts', valid_card.suit)
-    assert_equal(1, valid_card.number)
+    valid_card.suit.must_equal 'hearts'
+    valid_card.number.must_equal 1
   end
 
   it 'should reject invalid numbers from 1-13' do
-    assert_raises(InvalidCardError) do
-      Card.new(0, 'spades')
-    end
-    assert_raises(InvalidCardError) do
-      Card.new(14, 'hearts')
-    end
+    err = -> { Card.new(0, 'spades') }.must_raise(RuntimeError)
+    err.message.must_match(/Must be a number between 1 and 13/)
+    err = -> { Card.new(14, 'hearts') }.must_raise(RuntimeError)
+    err.message.must_match(/Must be a number between 1 and 13/)
   end
 
   it 'should reject invalid suits' do
-    assert_raises(InvalidCardError) do
-      Card.new(4, 'not_valid')
-    end
+    err = -> { Card.new(4, 'not_valid') }.must_raise(RuntimeError)
+    err.message.must_match(/Suits must be legitimate card suits/)
   end
 
   it 'should not be case-sensitive' do
     card = Card.new(11, 'Hearts')
     card_2 = Card.new(2, 'SPaDes')
-    assert_equal('hearts', card.suit)
-    assert_equal('spades', card_2.suit)
+    card.suit.must_equal 'hearts'
+    card_2.suit.must_equal 'spades'
   end
 
   it 'should give a readable string with to_s' do
-    assert_equal('Ace of hearts', valid_card.to_s)
+    valid_card.to_s.must_equal 'Ace of hearts'
   end
 end

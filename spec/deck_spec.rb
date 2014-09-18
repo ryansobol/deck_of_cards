@@ -5,26 +5,25 @@ require 'deck'
 describe Deck do
 
   let(:unshuffled_deck) { Deck.new }
-  let(:shuffled_deck) { Deck.new(shuffle: true) }
+  let(:shuffled_deck) { Deck.new(true) }
 
   it 'a new deck should have 52 cards' do
-    assert_equal(52, unshuffled_deck.size)
+    unshuffled_deck.size.must_equal 52
   end
 
   it 'should have an ordered deck' do
     card_one = unshuffled_deck.cards[0]
     card_twenty_eight = unshuffled_deck.cards[27]
 
-    assert_equal('hearts', card_one.suit)
-    assert_equal(1, card_one.number)
+    card_one.suit.must_equal 'hearts'
+    card_one.number.must_equal 1
 
-    assert_equal('diamonds', card_twenty_eight.suit)
-    assert_equal(2, card_twenty_eight.number)
+    card_twenty_eight.suit.must_equal 'diamonds'
+    card_twenty_eight.number.must_equal 2
   end
 
   it 'should give a random order of cards after shuffling' do
-
-    refute_equal(unshuffled_deck.to_s, shuffled_deck.to_s)
-    assert_equal(52, shuffled_deck.size)
+    shuffled_deck.to_s.wont_equal unshuffled_deck.to_s
+    shuffled_deck.size.must_equal 52
   end
 end

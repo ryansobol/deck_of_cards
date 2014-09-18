@@ -1,17 +1,14 @@
-require 'deck_config'
-
 class Deck
   attr_accessor :cards
-  # $SUITS = %w(hearts spades diamonds clubs)
 
-  def initialize(options = {})
+  def initialize(shuffle = false)
     @cards = []
-    SUITS.each do |suit|
+    Card::SUITS.each do |suit|
       (1..13).each do |number|
         @cards << Card.new(number, suit)
       end
     end
-    self.shuffle! if options[:shuffle]
+    self.shuffle! if shuffle
   end
 
   def shuffle!
@@ -20,11 +17,7 @@ class Deck
   end
 
   def to_s
-    cards_string = []
-    @cards.each do |card|
-      cards_string << "#{card}"
-    end
-    cards_string.join(', ')
+    @cards.map(&:to_s).join(', ')
   end
 
   def size
