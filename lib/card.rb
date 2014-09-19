@@ -1,6 +1,6 @@
-require 'deck_config'
-
 class Card
+  SUITS = %w(hearts spades diamonds clubs)
+
   attr_accessor :number, :suit
 
   def initialize(number, suit)

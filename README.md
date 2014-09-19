@@ -19,3 +19,9 @@ I then went through and refactored/best-practicified my code as best I could.
 
 I worked with Sunny, Gabe, and Scott on this project.
 We kick posterior regions.
+
+# Install
+
+```
+bundle install --path vendor/bundle
+```

@@ -1,12 +1,11 @@
-require 'deck_config'
+require 'card'
 
 class Deck
   attr_accessor :cards
-  # $SUITS = %w(hearts spades diamonds clubs)
 
   def initialize(options = {})
     @cards = []
-    SUITS.each do |suit|
+    Card::SUITS.each do |suit|
       (1..13).each do |number|
         @cards << Card.new(number, suit)
       end
